@@ -22,22 +22,25 @@
         <h2>Produtos</h2>
     </div>
     <div id="tabela" class="container">
-        <div class="form-inline">
-            <div class="form-group">
+        <div id="input-forms" class="form-inline">
+            <div class="form-group mr-1">
                 <input type="text" class="form-control" id="desc" placeholder="Descrição">
             </div>
-            <div class="form-group">
+            <div class="form-group mr-1">
                 <input type="text" class="form-control" id="quantidade" placeholder="Quantidade">
             </div>
-            <div class="form-group">
+            <div class="form-group mr-1">
                 <input type="text" class="form-control" id="valor" placeholder="Valor">
             </div>
             <span id="btn-update" style="display: none;">
                 <span id="inputIdAtualizar"></span>
-                <button onclick="updateData()" class="btn btn-primary">Salvar</button>
-                <button onclick="resetForm()" class="btn btn-primary">Cancelar</button>
+                <button onclick="updateData()" class="btn btn-success mr-1">Salvar</button>
+                <button onclick="resetForm()" class="btn btn-secondary mr-1">Cancelar</button>
             </span>
             <button id="btn-add" onclick="addData()" class="btn btn-primary">Adicionar</button>
+        </div>
+        <div id="alert-validation" class="alert alert-danger col-md-12 " role="alert" style="display: none">
+            <p class="alert-link" id="errors"></p>
         </div>
         <table id="lista-tabela" class="table table-striped table-responsive-sm">
         </table>
