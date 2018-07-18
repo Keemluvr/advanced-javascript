@@ -32,7 +32,12 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="valor" placeholder="Valor">
             </div>
-            <button onclick="addData()" class="btn btn-primary">Adicionar</button>
+            <span id="btn-update" style="display: none;">
+                <span id="inputIdAtualizar"></span>
+                <button onclick="updateData()" class="btn btn-primary">Salvar</button>
+                <button onclick="resetForm()" class="btn btn-primary">Cancelar</button>
+            </span>
+            <button id="btn-add" onclick="addData()" class="btn btn-primary">Adicionar</button>
         </div>
         <table id="lista-tabela" class="table table-striped table-responsive-sm">
         </table>
