@@ -9,7 +9,7 @@ function getTotal(lista){
     for(let chave in lista){
         total += lista[chave].valor * lista[chave].quantidade;
     }
-    return total;
+    document.getElementById("totalValue").innerHTML = formatValue(total);
 };
 
 function setList(lista){
@@ -19,6 +19,8 @@ function setList(lista){
     }
     tabela += '</tbody>';
     document.getElementById("lista-tabela").innerHTML = tabela;
+    getTotal(lista);
+    saveListStorage(lista)  
 }
 
 function formatDesc(desc){
@@ -99,7 +101,6 @@ function deleteData(id){
             lista = arrayAuxIni.concat(arrAuxEnd);
         }
         setList(lista);
-
     }
 }
 
@@ -134,8 +135,30 @@ function validation(){
     }else{
         return 1;
     }
-
 }
 
-setList(lista);
-console.log(getTotal(lista));
+function deleteList(){
+    if(confirm("Deletar esta lista?")){
+        lista = [];
+        setList(lista);
+    }
+}
+
+//Salva no LocalStorage
+function saveListStorage(lista){
+    let jsonString = JSON.stringify(lista);
+    localStorage.setItem("lista", jsonString);
+}
+
+//Inicialização do LocalStorage
+function iniListaStorage(){
+    //se existir, se não, fica nulo 
+    let textList= localStorage.getItem("lista");
+    if(textList){
+        //Conversão
+        lista = JSON.parse(textList);
+    }
+    setList(lista);
+}
+
+iniListaStorage()
